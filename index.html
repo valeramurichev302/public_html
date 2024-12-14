@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applcoin Bot</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Добро пожаловать в Applcoin Bot</h1>
+    
+    <button id="collectBtn">Собрать</button>
+    <button id="upgradeBtn">Улучшения</button>
+    <button id="referralBtn">Реферальная система</button>
+    <button id="profileBtn">Профиль</button>
+    <button id="walletBtn">Кошелёк</button>
+
+    <div id="message" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+    document.getElementById('collectBtn').onclick = function() {
+        // Здесь будет логика для сбора Applcoin
+        fetch('/collect')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+    };
+
+    document.getElementById('upgradeBtn').onclick = function() {
+        // Здесь будет логика для улучшений
+        fetch('/upgrades')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+                // Отобразите варианты улучшений
+            });
+    };
+
+    document.getElementById('referralBtn').onclick = function() {
+        // Здесь будет логика для реферальной системы
+        fetch('/referral')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+    };
+
+    document.getElementById('profileBtn').onclick = function() {
+        // Здесь будет логика для профиля
+        fetch('/profile')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+                // Отобразите информацию о профиле
+            });
+    };
+
+    document.getElementById('walletBtn').onclick = function() {
+        // Здесь будет логика для кошелька
+        fetch('/wallet')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+                // Отобразите информацию о кошельке
+            });
+    };
+</script>
+
+</body>
+</html>
